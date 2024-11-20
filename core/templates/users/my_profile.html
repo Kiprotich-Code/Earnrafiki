@@ -1,0 +1,26 @@
+{% extends '../user_home.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="card p-3 rounded">
+        <p> <strong>Personal Information</strong></p>
+        <p class="text-sm font-weight-bold"> <strong>Name:</strong> {{user_info.get_full_name}}</p>
+        <p class="text-sm font-weight-bold"> <strong>Address:</strong> {{user_info.address}}</p>
+        <p class="text-sm font-weight-bold"> <strong>Phone No: </strong>0{{user_info.phone_no}}</p>
+        <p class="text-sm font-weight-bold"> <strong>Email:</strong> {{user_info.email}}</p>
+
+
+        <p> <strong>Account Info</strong></p>
+        <p class="text-sm font-weight-bold"> <strong>ACC NO:</strong> {{acc_info.account_no}}</p>
+        <p class="text-sm font-weight-bold"> <strong>Balance: $</strong> {{acc_info.balance}}</p>
+        <p class="text-sm font-weight-bold"> <strong>Created On:</strong> {{user_info.date_joined}}</p>
+        <p class="text-sm font-weight-bold"> <strong>Status: 
+            {% if user_info.is_active %}
+            <button class="btn btn-sm btn-success rounded">Active</button>
+            {% else %}
+            <button class="btn btn-sm btn-outline-danger rounded">Not Active</button>
+            {% endif %}
+        </p>
+    </div>
+</div>
+{% endblock %}

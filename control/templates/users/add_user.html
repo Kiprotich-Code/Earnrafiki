@@ -1,0 +1,33 @@
+{% extends '../dashboard.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="card p-3">
+        <h5>Add User</h5>
+        <div class="card-body px-0 pb-2">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="py-2">
+                    {{form.first_name}}
+                </div>
+                <div class="py-2">
+                    {{form.last_name}}
+                </div>
+                <div class="py-2">
+                    {{ form.email }}
+                </div>
+                <div class="py-2">
+                    {{ form.phone_no }}
+                </div>
+                <div class="py-2">
+                    {{ form.address }}
+                </div>
+                <div class="py-2">
+                    {{ form.password }}
+                </div>
+                <input type="submit" value="Add User" class="btn btn-success rounded">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends '../dashboard.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="d-flex justify-content-end m-3">
+        <a href="#" class="btn  btn-sm btn-primary">
+            Manage
+        </a>
+    </div>
+    <div class="card p-3">
+        <div class="card-body px-0 pb-2">
+            <div class="table-responsive">
+
+                <div class="table-responsive">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Account No</th>
+                                <th
+                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">
+                                    Owner</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Amount</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Balance</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Type</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Timestamp</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Status</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Actions</th>
+                            </tr>
+                        </thead>
+
+                        {% for tr in transactions %}
+                        <tr>
+                            <td class="align-middle text-sm ">
+                                <span class="text-xs font-weight-bold"> {{tr.account.account_no}} </span>
+                            </td>
+                            <td class="align-middle text-sm ">
+                                <span class="text-xs font-weight-bold"> {{tr.account.user.email}} </span>
+                            </td>
+                            <td class="align-middle text-sm ">
+                                <span class="text-xs font-weight-bold"> {{tr.amount}} </span>
+                            </td>
+                            <td class="align-middle text-sm ">
+                                <span class="text-xs font-weight-bold"> {{tr.account.balance}} </span>
+                            </td>
+                            <td class="align-middle text-sm ">
+                                <span class="text-xs font-weight-bold"> {{tr.transaction_type}} </span>
+                            </td>
+                            <td class="align-middle text-sm ">
+                                <span class="text-xs font-weight-bold"> {{tr.date | timesince }} ago </span>
+                            </td>
+                            <td class="align-middle text-sm ">
+                                <span class="text-xs font-weight-bold"> {{tr.tr_status}} </span>
+                            </td>
+                            <td>
+                                <a href="{% url 'transaction_update' tr.id %}"
+                                    class="btn btn-sm btn-success rounded mt-3">Manage</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

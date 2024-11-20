@@ -1,0 +1,99 @@
+{% extends '../user_home.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="card p-3 rounded">
+        <div class="d-flex flex-wrap gap-3">
+            <p class="text-sm font-weight-bold"><strong>Account Number:</strong> {{ account.account_no }}</p>
+            <p class="text-sm font-weight-bold"><strong>Balance:</strong> ${{ account.balance }}</p>
+            <p class="text-sm font-weight-bold"><strong>User:</strong> {{ account.user.get_full_name }}</p>
+            <p class="text-sm font-weight-bold"><strong>Email:</strong> {{ account.user.email }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="container py-4">
+    <div class="card p-3 rounded">
+        <div class="card-body px-0 pb-2">
+            <div class="d-flex justify-content-end gap-3">
+                <a href="{% url 'withdraw' %}" class="btn btn-primary m-0 rounded btn-sm">Withdraw</a>
+                <a href="{% url 'deposit' %}" class="btn btn-primary m-0 rounded btn-sm">Deposit</a>
+                <a href="{% url 'acc_details' %}" class="btn btn-primary m-0 rounded btn-sm">Account Details</a>
+            </div>
+            <div class="table-responsive">
+                <p class="font-weight-bold">Transaction History</p>
+                <div class="table-responsive">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    ACCOUNT No</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Type</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Before</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Amount</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    After</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Timestamp</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Status</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Actions</th>
+                            </tr>
+                        </thead>
+
+                        {% if transactions %}
+                        {% for transaction in transactions %}
+                        <tr>
+                            <td class="align-middle text-sm text-center ">
+                                <span class="text-xs font-weight-bold "> {{transaction.account.account_no}} </span>
+                            </td>
+                            <td class="align-middle text-sm text-center ">
+                                <span class="text-xs font-weight-bold text-uppercase">
+                                    {{transaction.transaction_type}} </span>
+                            </td>
+                            <td class="align-middle text-sm text-center ">
+                                <span class="text-xs font-weight-bold"> $ {{transaction.account.balance}} </span>
+                            </td>
+                            <td class="align-middle text-sm text-center ">
+                                <span class="text-xs font-weight-bold"> $ {{transaction.amount}} </span>
+                            </td>
+                            <td class="align-middle text-sm text-center ">
+                                <span class="text-xs font-weight-bold"> $ {{transaction.account.balance}} </span>
+                            </td>
+                            <td class="align-middle text-sm text-center ">
+                                <span class="text-xs font-weight-bold"> {{transaction.date | timesince }} ago
+                                </span>
+                            </td>
+                            <td class="align-middle text-sm text-center ">
+                                <span class="text-xs font-weight-bold"> {{transaction.tr_status}} </span>
+                            </td>
+                            <td class="align-middle text-sm text-center">
+                                <span class="text-xs font-weight-bold"> <a href="" class="text-primary">More Info</a>
+                                </span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td colspan="3">No transactions found.</td>
+                        </tr>
+                        {% endif %}
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

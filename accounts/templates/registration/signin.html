@@ -1,0 +1,20 @@
+{% extends './signup_step1.html' %}
+
+{% block form_data %}
+<form method="POST" action="{% url 'signin' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+        {{ form.email }}
+    </div>
+    <div class="mb-3">
+        {{ form.password }}
+    </div>
+    <div class="mb-3">
+        {{ form.password2 }}
+    </div>
+    <button type="submit" class="btn btn-dark w-100 mb-3">Sign In</button>
+
+    <p class="text-center">Don't have an account? <a href="{% url 'signup_step1' %}" class="text-decoration-none">Create One</a>
+    </p>
+</form>
+{% endblock %}

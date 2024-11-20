@@ -1,0 +1,13 @@
+{% extends '../user_home.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="card p-3 rounded">
+        <p class="text-sm font-weight-bold"><strong>Account Info</strong></p>
+        <p class="text-sm font-weight-bold"><strong>Account Number:</strong> {{ acc.account_no }}</p>
+        <p class="text-sm font-weight-bold"><strong>Balance:</strong> ${{ acc.balance }}</p>
+        <p class="text-sm font-weight-bold"><strong>User:</strong> {{ acc.user.first_name }} {{ acc.user.last_name }}</p>
+        <p class="text-sm font-weight-bold"><strong>Email:</strong> {{ acc.user.email }}</p>
+    </div>
+</div>
+{% endblock %}

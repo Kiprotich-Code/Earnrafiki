@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.height {
+    height: 100vh;
+}
+
+.card {
+
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 40px rgba(51, 51, 51, .1)
+}
+
+.card:hover {
+
+    background-color: #eee;
+
+}
+
+.ratings i {
+
+    color: orange;
+}
+
+.testimonial-list {
+
+    list-style: none;
+}
+
+.testimonial-list li {
+
+    margin-bottom: 20px;
+}
+
+.testimonials-margin {
+
+    margin-top: -19px;
+}
+
+.bg-vc {
+    background-image: url('../images/scattered-forcefields.png');
+    background-size: cover;
+}
+
+.large_h {
+    font-size: 3rem;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    cursor: pointer;
+}
+
+.fade-in {
+    opacity: 1;
+    /* Set opacity to 1 by default */
+    transform: translateX(-100%);
+    transition: transform 2s ease;
+}
+
+.visible {
+    transform: translateX(0);
+    /* Move element to its original position */
+}
+
+.card.slide-in {
+    transform: translateY(0);
+    /* Slide the card into view */
+}
+
+
+/* background signin  */
+.bg-signin {
+    --bsb-overlay-opacity: 0.7;
+    background-image: url('../images/forex.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Dark overlay with 50% opacity */
+    z-index: 1;
+    /* Layer it behind the text */
+}
+
+
+.bg-signin h5,
+.bg-signin h1 {
+    z-index: 2;
+    /* Bring text above the overlay */
+    color: #fff;
+    /* Ensure the text is white for contrast */
+}
+
+
+/* THE NEW CSS STYLINGS  */
+/* Investment Header Section */
+.investment-header {
+    position: relative;
+    background: linear-gradient(135deg, #0d6efd, #6610f2);
+    padding: 0 0 100px 0;
+    color: white;
+    overflow: hidden;
+  }
+  
+  /* Wavy Bottom */
+  .wave-svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+  }
+  
+  /* Header Content */
+  .investment-header .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .investment-header h1 {
+    font-size: 2.5rem;
+    line-height: 1.4;
+  }
+  
+  .investment-header p.lead {
+    font-size: 1.2rem;
+  }
+  
+  
+  .email-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  
+  .email-form input {
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    outline: none;
+    flex: 1;
+    max-width: 400px;
+  }
+  
+  .email-form button {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 0 50px 50px 0;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .email-form button:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Figures Section */
+  .figures {
+    margin-top: 50px;
+  }
+  
+  .figures .card {
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .figures .card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .figures h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .figures p {
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .investment-header h1 {
+        font-size: 2rem;
+    }
+  
+    .figures h3 {
+        font-size: 1.5rem;
+    }
+  }
+  
+  
+  .video-container {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+  }
+  
+  /* Video styling */
+  .responsive-video {
+      width: 100%;
+      height: auto; /* Ensure aspect ratio is maintained */
+      object-fit: cover; /* Ensures video covers the entire container */
+  }
+  
+  /* Ensure the header content is centered on smaller screens */
+  .header {
+      padding: 20px;
+  }
+  
+  /* Adjust text and video layout for smaller devices */
+  @media (max-width: 767px) {
+      .row {
+          flex-direction: column;
+          text-align: center; /* Center align text on smaller devices */
+      }
+  
+      .col-12 {
+          width: 100%;
+      }
+  
+      .video-container {
+          margin-top: 15px; /* Add space between text and video */
+      }
+  
+      .responsive-video {
+          height: 200px; /* Limit video height on mobile */
+      }
+  
+      .text-dark {
+          font-size: 1.5rem; /* Adjust text size on small screens */
+      }
+
+      .phone-mockup {
+        max-width: 300px; /* Width of the phone */
+        max-height: 400px;
+      }
+
+      .phone-mockup-head {
+        max-width: 300px; /* Width of the phone */
+        max-height: 300px;
+      }
+  }
+  
+  /* PHONE MOCKUP  */
+  .phone-mockup {
+    position: relative;
+    width: 400px; /* Width of the phone */
+    height: 600px; /* Height of the phone */
+    background: url('https://via.placeholder.com/300x600.png') no-repeat center center; /* Replace with your own phone mockup image */
+    background-size: contain; /* Ensure the phone fits within the div */
+    background-color: #6610f2; /* Fallback color */
+    border-radius: 50px; /* Rounded corners for phone shape */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    transform: perspective(500px) rotateX(0deg) rotateY(20deg); /*Perspective to give depth*/
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px; /* Rounded corners for the screen */
+  }
+  
+  .responsive-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video fills the screen area */
+    border-radius: 20px; /* Optional: Add some border radius for a softer edge */
+  }
+  
+  /* ADDITIONAL CUSTOM MOCKUP FOR HEAD  */
+  /* PHONE MOCKUP  */
+  .phone-mockup-head {
+    position: relative;
+    width: 400px; /* Width of the phone */
+    height: 400px; /* Height of the phone */
+    background: url('https://via.placeholder.com/300x600.png') no-repeat center center; /* Replace with your own phone mockup image */
+    background-size: contain; /* Ensure the phone fits within the div */
+    background-color: rgba(0, 0, 0, 0.2); /* Fallback color */
+    border-radius: 50px; /* Rounded corners for phone shape */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    /* transform: perspective(500px) rotateX(0deg) rotateY(20deg); Perspective to give depth */
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .phone-screen-head {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px; /* Rounded corners for the screen */
+  }
+  
+  .responsive-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video fills the screen area */
+    border-radius: 20px; /* Optional: Add some border radius for a softer edge */
+  }
+  
+  .step-box {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .step-box:hover {
+    transform: translateY(-10px); /* Slight lift effect on hover */
+  }
+  
+  .step-box i {
+    color: #0d6efd; /* Primary blue color */
+  }
+  
+  
+  @media (max-width: 767px) {
+    .step-box {
+        margin-bottom: 20px;
+    }
+  }
+  
+  
+  /* CONTACT  */
+  
+  .bg-contact {
+    --bsb-overlay-opacity: 0.7;
+    background-image: url('../images/park.jpg');
+  }
+  
+  
+  /* 
+    admin dashboard 
+    Messages - detail view
+  */
+  .email-container {
+    background-color: #fff;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .email-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .email-content {
+    padding-top: 20px;
+  }
+  
+  .email-footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+  
+  .email-label {
+    font-weight: bold;
+  }
+  
+  .bg-theme {
+    background: linear-gradient(135deg, #0d6efd, #6610f2);
+  }
+  
+  .text-color {
+    color: #000;
+  }
+  

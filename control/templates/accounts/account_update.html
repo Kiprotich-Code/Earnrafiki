@@ -1,0 +1,91 @@
+{% extends '../dashboard.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <!-- ========== Start Account Details ========== -->
+    <div class="row">
+        <div class="col col-lg-6 col-md-6">
+            <div class="card p-3">
+                <div class="card-body px-0 pb-2">
+                    <h5>User Info</h5>
+                    <hr>
+                    <span class="d-flex gap-2">
+                        <p class="fw-bold">Name: </p>
+                        <p> {{user.get_full_name}}</p>
+                    </span>
+                    <span class="d-flex gap-2">
+                        <p class="fw-bold">Email: </p>
+                        <p> {{user.email}}</p>
+                    </span>
+                    <span class="d-flex gap-2">
+                        <p class="fw-bold">Phone No: </p>
+                        <p> 0{{user.phone_no}}</p>
+                    </span>
+                    <span class="d-flex gap-2">
+                        <p class="fw-bold">Address: </p>
+                        <p> {{user.address}}</p>
+                    </span>
+                    <span class="d-flex gap-2">
+                        <p class="fw-bold">Joined: </p>
+                        <p> {{user.date_joined}}</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-lg-6 col-md-6">
+            <div class="card p-3">
+                <div class="card-body px-0 pb-2">
+                    <h5>Account Info</h5>
+                    <hr>
+                    <span class="d-flex gap-2">
+                        <p class="fw-bold">Account No: </p>
+                        <p> {{acc.account_no}}</p>
+                    </span>
+                    <span class="d-flex gap-2">
+                        <p class="fw-bold">Balance: </p>
+                        <p> {{acc.balance}}</p>
+                    </span>
+                    <span class="d-flex gap-2">
+                        <p class="fw-bold">Status: </p>
+                        <p> {{acc.status}}</p>
+                    </span>
+                    <span class="d-flex gap-2">
+                        <p class="fw-bold">Created: </p>
+                        <p> {{user.date_joined}}</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ========== End Account Details ========== -->
+
+
+    <!-- Update Account Status  -->
+    <div class="card my-3 p-3">
+        <p>Perform Actions On Account</p>
+
+        <p class="small">Note: Beware of the danger zone - some actions are irreversible!</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="button-group border border-success p-2 w-50 rounded my-3">
+                <p>Account Actions</p>
+                <button type="submit" name="status" value="Approved" class="btn btn-success rounded">Approve
+                    Account</button>
+                <button type="submit" name="status" value="Pending" class="btn btn-success rounded">Mark as
+                    Pending</button>
+            </div>
+            <div class="button-group border border-primary p-2 w-50 rounded">
+                <p class="text-primary">Danger Zone</p>
+                <button type="submit" name="status" value="Inactive" class="btn btn-primary rounded">Mark as
+                    Inactive</button>
+                <button type="submit" name="status" value="On Hold" class="btn btn-primary rounded">Put on Hold</button>
+                <button type="submit" name="status" value="Closed" class="btn btn-primary rounded">Close
+                    Account</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

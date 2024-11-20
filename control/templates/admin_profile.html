@@ -1,0 +1,17 @@
+{% extends './dashboard.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="card p-3 rounded">
+        <p class="text-bold">Personal Information</p>
+        <div class="d-flex flex-column gap-3">
+            <span class="text-sm"><strong>Email: </strong>{{admin_info.email }} </span>
+            <span class="text-sm"><strong>Name: </strong>{{admin_info.get_full_name }} </span>
+            <span class="text-sm"><strong>Account No: </strong>{{admin_info.account_no }} </span>
+            <span class="text-sm"><strong>Address: </strong>{{admin_info.address }} </span>
+            <span class="text-sm"><strong>Last Login: </strong>{{admin_info.last_login }} </span>
+            <span class="text-sm"><strong>Joined: </strong>{{admin_info.date_joined }} </span>
+        </div>
+    </div>
+</div>
+{% endblock %}

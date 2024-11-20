@@ -1,0 +1,62 @@
+{% extends '../dashboard.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row">
+        <div class="col">
+            <div class="card p-3">
+                <div class="card-body px-0 pb-2">
+                    <h5>Transaction Details</h5>
+                    <div class="d-flex flex-wrap gap-3">
+                        <p> <strong>Transction Status:</strong> {{ transaction.tr_status }}</p>
+                        <p> <strong>Type:</strong> {{ transaction.transaction_type }}</p>
+                        <p> <strong>Amount:</strong> {{ transaction.amount }}</p>
+                        <p> <strong>Timestamp:</strong> {{ transaction.date }}</p>
+                    </div>
+
+                    <div class="border rounded p-3 my-3">
+                        <p>Actions On Transactions</p>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="button-group">
+                                <button type="submit" name="tr_status" value="Approved"
+                                    class="btn btn-sm btn-success rounded">Approve</button>
+                                <button type="submit" name="tr_status" value="Pending"
+                                    class="btn btn-sm btn-primary rounded">Mark
+                                    as
+                                    Pending</button>
+                                <button type="submit" name="tr_status" value="Rejected"
+                                    class="btn btn-sm btn-danger rounded">Reject</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-lg-6 col-md-6">
+            <div class="card p-3">
+                <div class="card-body px-0 pb-2">
+                    <h5>Account Info</h5>
+                    <span class="d-flex gap-2">
+                        <p class="fw-bold">Account No: </p>
+                        <p> {{transaction.account.account_no}}</p>
+                    </span>
+                    <span class="d-flex gap-2">
+                        <p class="fw-bold">Balance: </p>
+                        <p> $ {{transaction.account.balance}}</p>
+                    </span>
+                    <span class="d-flex gap-2">
+                        <p class="fw-bold">Account Status: </p>
+                        <p> {{transaction.account.status}}</p>
+                    </span>
+                    <span class="d-flex gap-2">
+                        <p class="fw-bold">Created: </p>
+                        <p>{{transaction.account.user.date_joined}}</p>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

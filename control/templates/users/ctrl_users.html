@@ -1,0 +1,63 @@
+{% extends '../dashboard.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="d-flex justify-content-end">
+        <a href="{% url 'add_user' %}" class="btn btn-primary">
+            Add User
+        </a>
+    </div>
+
+    <div class="card p-3">
+        <div class="card-body px-0 pb-2">
+            <div class="table-responsive">
+                <table class="table align-items-center mb-0">
+                    <thead>
+                        <tr>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                Name</th>
+                            <th
+                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 text-center">
+                                Email</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                User Type</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                Account No</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                Joined</th>
+                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                Actions</th>
+                        </tr>
+                    </thead>
+
+                    {% for user in users %}
+                    <tr>
+                        <td class="align-middle text-sm ">
+                            <span class="text-xs font-weight-bold"> {{user.get_full_name}} </span>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold">
+                                <a href="">{{user.email}} </a>
+                            </span>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> {{user.user_type }} </span>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> {{user.account_no}} </span>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                            <span class="text-xs font-weight-bold"> {{user.date_joined}} </span>
+                        </td>
+                        <td>
+                            <a href="{% url 'update_user' user.id %}" class="btn btn-sm btn-success rounded mt-3">Update</a>
+                            <a href="{% url 'user_details' user.id %}" class="btn btn-primary btn-sm rounded mt-3">Manage</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

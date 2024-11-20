@@ -1,0 +1,14 @@
+{% extends '../dashboard.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="card p-3">
+        <h5>Update User</h5>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Update" class="btn btn-sm btn-primary">
+        </form>
+    </div>
+</div>
+{% endblock %}

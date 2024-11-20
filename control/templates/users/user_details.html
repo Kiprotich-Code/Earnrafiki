@@ -1,0 +1,28 @@
+{% extends '../dashboard.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="card p-3">
+        <div class="d-flex flex-column gap-3 p-3">
+            <span class="text-sm"><strong>User Type: </strong>{{user.user_type }} </span>
+            <span class="text-sm"><strong>Email: </strong>{{user.email }} </span>
+            <span class="text-sm"><strong>Name: </strong>{{user.get_full_name }} </span>
+            <span class="text-sm"><strong>Account No: </strong>{{user.account_no }} </span>
+            <span class="text-sm"><strong>Address: </strong>{{user.address }} </span>
+            <span class="text-sm"><strong>Last Login: </strong>{{user.last_login }} </span>
+            <span class="text-sm"><strong>Joined: </strong>{{user.date_joined }} </span>
+        </div>
+
+        <!-- actions  -->
+        <div class="border p-3 rounded">
+            <p><strong>Actions On User</strong></p>
+            <div class="button-group">
+                <a class="btn btn-primary btn-sm" href="{% url 'update_user' user.id %}">Update User</a>
+                <a class="btn btn-primary btn-sm" href="#">Flag Inactive</a>
+                <a class="btn btn-danger btn-sm">Delete User</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
