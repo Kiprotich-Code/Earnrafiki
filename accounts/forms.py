@@ -4,26 +4,13 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import CustomUser
 
 # Step 1: Personal Information Form
-class PersonalInfoForm(forms.ModelForm):
-    class Meta:
-        model = CustomUser
-        fields = ['first_name', 'last_name', 'phone_no', 'address']
-        widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Official First Name"}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Official Last Name"}),
-            'phone_no': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Phone No: i.e +254700234200"}),
-            'address': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Address"}),
-        }
-
-
-# Step 2: Email & Password Form
-class AccountInfoForm(UserCreationForm):
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Your Email Address'}))
-    password1 = forms.CharField(
+class UserForm(forms.ModelForm):
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'example@gmail.com'}))
+    password = forms.CharField(
         widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Your Password',
+                'placeholder': 'Password',
             }
         )
     )
@@ -35,10 +22,16 @@ class AccountInfoForm(UserCreationForm):
             }
         )
     )
-    
-    class Meta(UserCreationForm.Meta):
+
+    class Meta:
         model = CustomUser
-        fields = ['email', 'password1', 'password2']
+        fields = ['name', 'email', 'phone_no', 'password', ]
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Name"}),
+            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Email"}),
+            'phone_no': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Phone Number"}),
+        }
+
 
 class LoginForm(forms.Form):
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder' :'Email', 'style': 'max-width: 600px;'}))

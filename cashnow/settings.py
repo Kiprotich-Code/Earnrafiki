@@ -69,16 +69,24 @@ WSGI_APPLICATION = 'cashnow.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     # 'default': {
+#     #     'ENGINE': 'django.db.backends.postgresql',
+#     #     'NAME': 'railway',  # The name of your database
+#     #     'USER': 'postgres',  # Your PostgreSQL username
+#     #     'PASSWORD': 'avWDVLHaavDMMTqjUuUBaGugkzyGCfPh',  # The password for your PostgreSQL user
+#     #     'HOST': 'junction.proxy.rlwy.net',  # The host for your database
+#     #     'PORT': '57856',  # The port your PostgreSQL is running on
+#     # }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',  # The name of your database
-        'USER': 'postgres',  # Your PostgreSQL username
-        'PASSWORD': 'avWDVLHaavDMMTqjUuUBaGugkzyGCfPh',  # The password for your PostgreSQL user
-        'HOST': 'junction.proxy.rlwy.net',  # The host for your database
-        'PORT': '57856',  # The port your PostgreSQL is running on
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
     }
 }
+
 
 
 

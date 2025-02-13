@@ -18,6 +18,18 @@ class Account(models.Model):
     
     # Automatically pull the account number from CustomUser
     account_no = models.CharField(max_length=12, editable=False, unique=True)
+    
+    # Referral System Fields
+    referred_by = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, blank=True, related_name='referred_users')
+    referral_reward_received = models.BooleanField(default=False)  # To track if the referrer has already been rewarded
+
+    def __str__(self):
+        return f"Account for {self.user.email}"
+    
+    def is_eligible_for_reward(self):
+        """ Check if the user has made a deposit and the referrer is eligible for the reward """
+        return self.balance > 0 and self.referred_by and not self.referral_reward_received
+
 
     def deposit(self, amount):
         """Deposits money to the user's account"""
@@ -30,9 +42,6 @@ class Account(models.Model):
             raise ValueError("Insufficient funds")
         self.balance -= amount
         self.save()
-
-    def __str__(self):
-        return f"Account of {self.user.email}, Account No: {self.account_no}, Balance: {self.balance}"
 
 
 # Transaction model (to log deposits and withdrawals)

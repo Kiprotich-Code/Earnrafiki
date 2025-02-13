@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils import timezone
 from .managers import CustomUserManager
+import uuid
 
 # Create your models here.
 class CustomUser(AbstractBaseUser, PermissionsMixin):
@@ -12,9 +13,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     ]   
 
     # personal details 
-    first_name = models.CharField(max_length=30, blank=False)
-    last_name = models.CharField(max_length=30, blank=False)
-    address = models.TextField(blank=True, null=True)
+    name = models.CharField(max_length=30, blank=False)
     phone_no = models.IntegerField(blank=True, null=True)
 
     # account details 
@@ -28,6 +27,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     # account - field 
     account_no = models.CharField(max_length=12, unique=True, editable=False)
 
+    # refferal code 
+    referral_code = models.CharField(max_length=12, unique=True, blank=True, null=True)
 
     # auth 
     password_reset_token = models.CharField(max_length=100, blank=True, null=True)
@@ -38,10 +39,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     # email as the default username 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name']
+    REQUIRED_FIELDS = ['name']
 
-    def get_full_name(self):
-        return f"{self.first_name} {self.last_name}"
+    def save(self, *args, **kwargs):
+        if not self.referral_code:
+            self.referral_code = str(uuid.uuid4()).split('-')[0]  # Generate a short unique code
+        super(CustomUser, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.email
