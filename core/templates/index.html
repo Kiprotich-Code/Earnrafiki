@@ -1,621 +1,262 @@
 {% load static %}
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="{% static 'images/logo-bg.png' %}">
-    <title>Your Investiment Partner</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-    <!-- google fonts  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earn Rafiki</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-
 <body>
-    <!-- Header  -->
-    <section id="header" class="investment-header">
-        <div class="d-flex justify-content-between px-5 p-3">
-            <img src="{% static 'images/logo-bg.png' %}" alt="" style="width: 80px;">
+  <section id="header" class="investment-header flashy-bg">
+    <div class="d-flex justify-content-between p-5 p-3">
+      <img src="{% static 'images/design-bg.png' %}" alt="" style="width: 80px;" class="rounded">
 
-            <!-- <button class="btn btn-dark">Get Started</button> -->
-        </div>
-        <!-- Header Content -->
-        <div class="container">
+      <!-- <button class="btn btn-dark">Get Started</button> -->
+    </div>
+    <!-- Header Content -->
+    <div class="container">
 
-            <div class="row align-items-center">
-                <!-- Left Content -->
-                <div class="col-md-6 text-white">
-                    <h1 class="display-4 fw-bold">
-                        Simple, Secure and Smart Investing
-                    </h1>
-                    <p class="lead my-4">
-                        Take the first step to secure your financial future. Let’s help you grow smarter and faster.
-                    </p>
+      <div class="row align-items-center">
+        <!-- Left Content -->
+        <div class="col-md-6 text-white">
+          <h1 class="display-4 fw-bold">
+            Simple, Secure and Smart Investing
+          </h1>
+          <p class="lead my-4">
+            Take the first step to secure your financial future. Let’s help you grow smarter and faster.
+          </p>
 
-                    <!-- Email Form -->
-                    <form class="email-form">
-                        <input type="email" placeholder="Enter your email address" required />
-                        <button type="submit" class="bg-dark">Send Us an Email</button>
-                    </form>
-                </div>
+          <!-- Email Form -->
+          <form class="email-form d-none d-md-flex">
+            <input type="email" placeholder="Enter your email address" required />
+            <button type="submit" class="bg-dark">Send Us an Email</button>
+          </form>
+        </div> 
 
-                <!-- Mockup Image -->
-                <div class="col-md-6 text-center">
-                    <div class="phone-mockup-head">
-                        <div class="phone-screen-head">
-                            <!-- <video autoplay muted loop class="responsive-video">
-                                <source src="{% static 'images/mc1.mp4' %}" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video> -->
-                            <img src="{% static 'images/polish.jpeg' %}" alt="" class="responsive-image">
-                        </div>
-                    </div>
-                </div>
-
+        <!-- Mockup Image -->
+        <div class="col-md-6 text-center">
+          <!-- <div class="phone-mockup-head">
+            <div class="phone-screen-head">
+              <img src=".{% static 'images/raf.jpg" alt="" class="responsive-image">
             </div>
-
-            <!-- Figures Section -->
-            <div class="row text-center mt-5 figures">
-                <div class="col-md-3 mb-3">
-                    <div class="card bg-dark text-white p-4 shadow-sm">
-                        <h3>1M+</h3>
-                        <p>Happy Investors</p>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <div class="card bg-dark text-white p-4 shadow-sm">
-                        <h3>100+</h3>
-                        <p>Global Brands</p>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <div class="card bg-dark text-white p-4 shadow-sm">
-                        <h3>150+</h3>
-                        <p>Countries Served</p>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <div class="card bg-dark text-white p-4 shadow-sm">
-                        <h3>10K+</h3>
-                        <p>Financial Experts</p>
-                    </div>
-                </div>
-            </div>
+          </div> -->
+          <img src="{% static 'images/raf3-bg.png' %}" alt="" style="width: 100%;" class="rounded">
         </div>
 
-        <!-- Wavy SVG -->
-        <div class="wave-svg overflow-hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" shape-rendering="crispEdges"
-                text-rendering="optimizeLegibility">
-                <path fill="#ffffff" fill-opacity="1"
-                    d="M0,160L60,149.7C120,139,240,117,360,112C480,107,600,117,720,128C840,139,960,149,1080,144C1200,139,1320,117,1380,106.3L1440,96L1440,320L0,320Z">
-                </path>
-            </svg>
-        </div>
+      </div>
+    </div>
+    <div style="height: 150px;">
 
-
-    </section>
-
-
-
-    <!-- About  -->
-    <div class="container p-3">
-        <div class="row d-flex flex-column-reverse flex-md-row">
-            <div class="col p-5">
-                <h5 class="mb-3 fs-4">Who Are We ?</h5>
-                <p style="text-align: justify;">
-                    We are a team of experienced investors, financial experts, and tech innovators dedicated to helping
-                    you achieve your financial goals. We believe that smart investing should be accessible to everyone,
-                    regardless of experience or background. Our mission is to make wealth-building simple, secure, and
-                    hassle-free by managing your investments in a diverse range of assets—stocks, real estate,
-                    cryptocurrencies, and more—on your behalf.
-
-                    With a focus on transparency, security, and growth, we are committed to helping you build a brighter
-                    financial future.
-                </p>
-                <button class="btn btn-dark btn-lg rounded">Get Started</button>
-            </div>
-            <div class="col-12 col-md-6">
-                <div class="video-container">
-                    <video autoplay muted loop class="responsive-video">
-                        <source src="{% static 'images/mc2.mp4' %}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-        </div>
+    </div>
+    <!-- Wavy SVG -->
+    <div class="wave-svg overflow-hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" shape-rendering="crispEdges"
+        text-rendering="optimizeLegibility">
+        <path fill="#ffffff" fill-opacity="1"
+          d="M0,160L60,149.7C120,139,240,117,360,112C480,107,600,117,720,128C840,139,960,149,1080,144C1200,139,1320,117,1380,106.3L1440,96L1440,320L0,320Z">
+        </path>
+      </svg>
     </div>
 
-    <!-- Values -->
-    <section>
-        <div class="container p-md-5" id="explore">
-            <div class="row">
-                <div class="d-flex gap-5 flex-wrap flex-md-no-wrap justify-content-center">
-                    <div class="card shadow-sm border-none p-2 mb-3" style="width: 18rem;">
-                        <div class="p-3">
 
-                        </div>
-                        <div class="card-body">
-                            <h4>Expert Investment Strategies</h4>
-                            <p class="card-text">
-                                We work with a team of experienced investors who focus on diversifying your portfolio
-                                for optimal growth.
-                            </p>
-                        </div>
-                    </div>
+  </section>
 
-
-                    <div class="card shadow-sm border-none p-2 mb-3" style="width: 18rem;">
-                        <div class="p-3">
-
-                        </div>
-                        <div class="card-body">
-                            <h4>Flexibility and Control</h4>
-                            <p class="card-text">
-                                You can deposit, withdraw, or track your investments at any time with our easy-to-use
-                                platform.
-                            </p>
-                        </div>
-                    </div>
-
-
-                    <div class="card shadow-sm border-none p-2 mb-3" style="width: 18rem;">
-                        <div class="p-3">
-
-                        </div>
-                        <div class="card-body">
-                            <h4>No Hidden Fees</h4>
-                            <p class="card-text">
-                                We believe in transparency—no surprise fees or hidden charges.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <section>
+    <div class="container text-center px-5">
+      <h1 class="display-4 fw-bold">Refer a friend</h1>
+      <h5 class="">Instantly get 150 Ksh on your first referral!</h5>
+      <a class="btn rounded btn-dark btn-lg mt-3" href="{% url 'user_home' %}">Start earning now</a>
+      <div class="row mt-5">
+        <div class="col-md-4 feature-box">
+          <div class="feature-icon">⭐</div>
+          <div class="feature-title">4.7+ Rating</div>
+          <div class="feature-text">Reviews from happy users</div>
         </div>
-    </section>
-
-    <!-- How to get started  -->
-    <section style="background: linear-gradient(135deg, #0d6efd, #6610f2);" class="p-md-5" id="get_started">
-        <div class="container p-5 text-center">
-            <div class="d-flex flex-column flex-md-row justify-content-center">
-                <img src="{% static 'images/logo-bg.png' %}" alt="" style="width: 100px;" class="m-auto m-sm-0">
-                <h1 class="text-white text-center mb-4 display-4">Get Started In Three Simple Steps</h1>
-            </div>
-
-            <div class="text-center text-white m-auto w-md-75 p-3">
-                <p>Getting started is simple! First, create your account set up your personalized
-                    dashboard. Then, securely deposit funds using your preferred payment method. Once your money is in,
-                    our expert team invests on your behalf in a range of diverse assets. Sit back and watch your
-                    portfolio grow—whenever you're ready, you can easily withdraw your earnings.</p>
-            </div>
-            <div class="row text-center">
-                <!-- Step 1 -->
-                <div class="col-md-4">
-                    <div class="step-box">
-                        <i class="bi bi-check-circle fs-1 text-primary mb-3"></i> <!-- Bootstrap Icons -->
-                        <h3>Sign Up</h3>
-                        <p>Create an account to start using our platform. It's quick and easy.</p>
-                        <a class="btn btn-lg rounded btn-dark" href="{% url 'register' %}">Sign Up Now</a>
-                    </div>
-                </div>
-                <!-- Step 2 -->
-                <div class="col-md-4">
-                    <div class="step-box">
-                        <i class="bi bi-credit-card fs-1 text-primary mb-3"></i> <!-- Bootstrap Icons -->
-                        <h3>Fund Your Account</h3>
-                        <p>Deposit funds securely into your account to begin trading.</p>
-                        <a class="btn btn-lg rounded btn-dark" href="{% url 'deposit' %}">Fund Account</a>
-                    </div>
-                </div>
-                <!-- Step 3 -->
-                <div class="col-md-4">
-                    <div class="step-box">
-                        <i class="bi bi-bar-chart-line fs-1 text-primary mb-3"></i> <!-- Bootstrap Icons -->
-                        <h3>Earn & Withdraw</h3>
-                        <p>Easily withdraw your earnings any time you're ready.</p>
-                        <a class="btn btn-lg rounded btn-dark" href="{% url 'user_home' %}">Withdraw Funds</a>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-4 feature-box">
+          <div class="feature-icon-sm">🔒</div>
+          <div class="feature-title">FCA Regulated</div>
+          <div class="feature-text">Approved since 2015</div>
         </div>
-    </section>
-
-    <!-- Trusted By  -->
-    <!-- <section>
-        <div class="container p-5 my-5">
-            <h2 class="display-4 text-center p-2">The Brands You Trust, Trusts Us!</h2>
-            <br>
-            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 g-5">
-                <div class="col p-2">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
-                    </div>
-                </div>
-                <div class="col p-2">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
-                    </div>
-                </div>
-                <div class="col p-2">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
-                    </div>
-                </div>
-                <div class="col p-2">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
-                    </div>
-                </div>
-                <div class="col p-2">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
-                    </div>
-                </div>
-                <div class="col p-2">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
-                    </div>
-                </div>
-                <div class="col p-2">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
-                    </div>
-                </div>
-                <div class="col p-2">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
-                    </div>
-                </div>
-                <div class="col p-2">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
-                    </div>
-                </div>
-                <div class="col p-2">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <img src="{% static 'images/paypal.png' %}" alt="NCBA" class="img-fluid" style="max-width: 100px;">
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-4 feature-box">
+          <div class="feature-icon">⏳</div>
+          <div class="feature-title">Quick Support</div>
+          <div class="feature-text">Average 1 min response</div>
         </div>
-    </section> -->
+      </div>
+    </div>
+  </section>
 
-
-    <!-- Testimonials  -->
-    <section id="testimonials">
-        <div class="container p-5 m-md-5">
-            <div class="accordion d-flex justify-content-center align-items-center" id="accordionExample">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="p-3">
-                            <h1 class="large_h">
-                                <strong class="text-primary">Meet</strong> Our Clients
-                            </h1>
-                            <ul class="testimonial-list">
-                                <li>
-                                    <div class="card p-3" data-toggle="collapse" data-target="#collapseOne"
-                                        aria-expanded="true" aria-controls="collapseOne">
-                                        <div class="d-flex flex-row align-items-center">
-                                            <img src="https://i.imgur.com/G1pXs7D.jpg" width="50"
-                                                class="rounded-circle">
-                                            <div class="d-flex flex-column ml-2">
-                                                <span class="font-weight-normal">Milton Austin</span>
-                                                <span>Sales Manager, Stack</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="card p-3" data-toggle="collapse" data-target="#collapseTwo"
-                                        aria-expanded="false" aria-controls="collapseTwo">
-                                        <div class="d-flex flex-row align-items-center">
-                                            <img src="https://i.imgur.com/udGH5tO.jpg" width="50"
-                                                class="rounded-circle">
-                                            <div class="d-flex flex-column ml-2">
-                                                <span class="font-weight-normal">John Reeves</span>
-                                                <span>Head of Sales, Asana</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="card p-3" data-toggle="collapse" data-target="#collapseThree"
-                                        aria-expanded="false" aria-controls="collapseThree">
-                                        <div class="d-flex flex-row align-items-center">
-                                            <img src="https://i.imgur.com/Uz4FjGZ.jpg" width="50"
-                                                class="rounded-circle">
-                                            <div class="d-flex flex-column ml-2">
-                                                <span class="font-weight-normal">Luke Harper</span>
-                                                <span>Sales Team Lead,Sketch</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-    
-                    <div class="col-md-6">
-                        <div class="p-3 testimonials-margin">
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <h4>A Game-Changer for My Financial Future!</h4>
-                                    <div class="ratings">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-    
-                                    <p>Before working with this team, I felt completely lost when it came to investing.
-                                        I had some savings but no real strategy or understanding of how to grow my
-                                        wealth. After sitting down with their advisors, they really took the time to
-                                        understand my goals and financial situation. They crafted a personalized
-                                        investment plan that made sense for me. Over the past three years, I’ve seen
-                                        consistent growth in my portfolio, even in challenging market conditions. Their
-                                        expertise and proactive management have been invaluable. Today, I feel more
-                                        confident than ever about my financial future, and I know I’m on track to meet
-                                        my long-term goals thanks to their guidance!</p>
-                                </div>
-                            </div>
-    
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <h4>They Transformed My Financial Approach</h4>
-                                    <div class="ratings">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-    
-                                    <p>I’ve worked with other financial advisors before, but none compared to the
-                                        level of service I’ve received here. They don’t just talk numbers; they educate
-                                        you on the 'why' behind every decision. After only a few months, I was already
-                                        seeing tangible improvements in my investment returns, and more importantly, I
-                                        understood the strategy behind the growth. Their team helped me diversify my
-                                        portfolio and take advantage of opportunities I would have never spotted on my
-                                        own. What really sets them apart is their genuine commitment to my financial
-                                        success—they regularly update me, adapt my plan based on market changes, and
-                                        make me feel like I’m in control of my financial destiny.</p>
-                                </div>
-                            </div>
-    
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                data-parent="#accordionExample">
-                                <div class="card-body">
-                                    <h4>From Uncertainty to Financial Freedom</h4>
-                                    <div class="ratings">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-    
-                                    <p> When I first approached this company, I was unsure about how to manage my
-                                        investments. I had heard horror stories about people losing money, and I didn’t
-                                        want to make the same mistakes. After our initial consultation, I felt a huge
-                                        weight lifted off my shoulders. They made everything simple to understand and
-                                        built a strategy that focused on both short-term gains and long-term security.
-                                        Over the years, my investments have steadily grown, and I’m now on track to
-                                        retire comfortably. I never imagined being this financially secure, and it’s all
-                                        thanks to their dedicated team who have been with me every step of the way.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <section class="how-it-works">
+    <div class="container text-center p-5">
+      <h2 class="display-4 fw-bold">How it works</h2>
+      <p class="section-subtitle">It's super easy to refer a friend. Give it a go!</p>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="info-box">
+            <img src="{% static 'images/logo-bg.png' %}" alt="Refer a friend" class="info-icon">
+            <h4 class="info-title">Refer a friend</h4>
+            <p class="info-text">Invite your friends using your personal code.</p>
+          </div>
         </div>
-    </section>
-
-    
-    <!-- CONTACT US SECTION  -->
-    <section id="contact">
-        <div class="container p-5">
-            <div class="row gy-3 gy-md-4 gy-lg-0">
-                <div class="col-12 col-lg-6">
-                    <!-- <img src="{% static 'images/img.jpg!sw800" alt="" style="width: 100%; height: 100%;" class="rounded"> -->
-
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <video autoplay muted loop class="responsive-video">
-                                <source src="{% static 'images/mc1.mp4' %}" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-6 bsb-overlay background-position-center background-size-cover bg-contact">
-                    <div class="row align-items-lg-center justify-content-center h-100">
-                        <div class="col-11 col-xl-10">
-                            <div class="contact-info-wrapper py-4 py-xl-5">
-                                <h5 class="mb-3 fs-4">Get in touch</h5>
-                                <p class="lead fs-4 opacity-75 mb-4 mb-xxl-5">We're
-                                    always on
-                                    the lookout to work with new clients. If you're interested in
-                                    working with us, please get in touch in one of the following
-                                    ways.
-                                </p>
-                                <div class="d-flex mb-4 mb-xxl-5">
-                                    <div class="me-4 text-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#6610f2"
-                                            class="bi bi-geo" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd"
-                                                d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="mb-3">Address</h4>
-                                        <address class="mb-0 opacity-75">P.o. Box
-                                            81243-80100, GPO Mombasa. Ngumu House 2nd Floor, Haile
-                                            Salasie Avenue,</address>
-                                    </div>
-                                </div>
-                                <div class="row mb-4 mb-xxl-5">
-                                    <div class="col-12 col-xxl-6">
-                                        <div class="d-flex mb-4 mb-xxl-0">
-                                            <div class="me-4 text-primary">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                    fill="#6610f2" class="bi bi-telephone-outbound" viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z" />
-                                                </svg>
-                                            </div>
-                                            <div>
-                                                <h4 class="mb-3">Phone</h4>
-                                                <p class="mb-0">
-                                                    <a class="link-dark link-opacity-75 link-opacity-100-hover text-decoration-none"
-                                                        href="tel:+15057922430">+254 717 950959</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-xxl-6">
-                                        <div class="d-flex mb-0">
-                                            <div class="me-4 text-primary">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                                    fill="#6610f2" class="bi bi-envelope-at" viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2H2Zm3.708 6.208L1 11.105V5.383l4.708 2.825ZM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2-7-4.2Z" />
-                                                    <path
-                                                        d="M14.247 14.269c1.01 0 1.587-.857 1.587-2.025v-.21C15.834 10.43 14.64 9 12.52 9h-.035C10.42 9 9 10.36 9 12.432v.214C9 14.82 10.438 16 12.358 16h.044c.594 0 1.018-.074 1.237-.175v-.73c-.245.11-.673.18-1.18.18h-.044c-1.334 0-2.571-.788-2.571-2.655v-.157c0-1.657 1.058-2.724 2.64-2.724h.04c1.535 0 2.484 1.05 2.484 2.326v.118c0 .975-.324 1.39-.639 1.39-.232 0-.41-.148-.41-.42v-2.19h-.906v.569h-.03c-.084-.298-.368-.63-.954-.63-.778 0-1.259.555-1.259 1.4v.528c0 .892.49 1.434 1.26 1.434.471 0 .896-.227 1.014-.643h.043c.118.42.617.648 1.12.648Zm-2.453-1.588v-.227c0-.546.227-.791.573-.791.297 0 .572.192.572.708v.367c0 .573-.253.744-.564.744-.354 0-.581-.215-.581-.8Z" />
-                                                </svg>
-                                            </div>
-                                            <div>
-                                                <h4 class="mb-3">E-Mail</h4>
-                                                <p class="mb-0">
-                                                    <a class="link-dark link-opacity-75 link-opacity-100-hover text-decoration-none"
-                                                        href="mailto:demo@yourdomain.com">info@cashnow.com</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-4">
+          <div class="info-box">
+            <img src="{% static 'images/wallet-bg.png' %}" alt="Your friend gets £10" class="info-icon">
+            <h4 class="info-title">Your friend activates account</h4>
+            <p class="info-text">Your friend makes their first deposit, and activates account.</p>
+          </div>
         </div>
-    </section>
+        <div class="col-md-4">
+          <div class="info-box">
+            <img src="{% static 'images/logo3-bg.png' %}" alt="You get £10" class="info-icon">
+            <h4 class="info-title">You Earn</h4>
+            <p class="info-text">When they activate their account, you'll get Ksh 150 in your account!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer  -->
-    <section>
-        <footer class="bg-light text-dark pt-5 pb-3">
-            <div class="container">
-                <!-- Top Row -->
-                <div class="row text-center text-md-start align-items-center mb-4 px-md-5">
-                    <!-- Payment Icons -->
-                    <div class="col-12 col-md-4 mb-3 mb-md-0">
-                        <h5 class="">WE ACCEPT</h5>
-                        <div class="d-flex justify-content-center justify-content-md-start align-items-center gap-3">
-                            <img src="{% static 'images/visa.png' %}" alt="Visa" style="width: 40px;" class="m-2">
-                            <img src="{% static 'images/master.png' %}" alt="MasterCard" style="width: 40px;" class="m-2">
-                            <img src="{% static 'images/skrill.png' %}" alt="Skrill" style="width: 40px;" class="m-2">
-                            <img src="{% static 'images/paypal.png' %}" alt="Neteller" style="width: 40px;" class="m-2">
-                        </div>
-                    </div>
-                    <!-- Social Media -->
-                    <div class="col-12 col-md-4 mb-3 mb-md-0">
-                        <h5 class="">CONNECT WITH US</h6>
-                            <div class="d-flex justify-content-center justify-content-md-start align-items-center gap-3">
-                                <a href="#"><img src="{% static 'images/fb.png' %}" alt="" style="width: 40px;" class="m-2"></a>
-                                <a href="#"><img src="{% static 'images/ig.avif' %}" alt="" style="width: 40px;" class="m-2"></a>
-                                <a href="#"><img src="{% static 'images/X.png' %}" alt="" style="width: 40px;" class="m-2"></a>
-                                <a href="#"><img src="{% static 'images/yt.png' %}" alt="" style="width: 40px;" class="m-2"></a>
-                            </div>
-                    </div>
-                    <!-- App Download -->
-                    <div class="col-12 col-md-4">
-                        <h5 class="">WE'RE AVAILABLE ON</h6>
-                            <div
-                                class="d-flex justify-content-center justify-content-md-start align-items-center gap-3">
-                                <img src="{% static 'images/playstore.png' %}" alt="App Store" style="width: 100px;">
-                                <img src="{% static 'images/appstore.png' %}" alt="Google Play" style="width: 100px;">
-                            </div>
-                    </div>
-                </div>
-                <!-- Links Row -->
-                <div class="row text-center text-md-start mb-4 p-5">
-                    <!-- Tell Me More -->
-                    <div class="col-12 col-md-3 mb-3 mb-md-0">
-                        <h5 class="">Quick Links</h6>
-                            <ul class="list-unstyled">
-                                <li><a class="text-decoration-none text-dark" href="#contact">About Us</a></li>
-                                <li><a class="text-decoration-none text-dark" href="#">Get Started</a></li>
-                                <li><a class="text-decoration-none text-dark" href="">Learn</a></li>
-                                <li><a class="text-decoration-none text-dark" href="#testimonials">Testimonials</a></li>
-                            </ul>
-                    </div>
-                    <!-- I Would Like To -->
-                    <div class="col-12 col-md-3 mb-3 mb-md-0">
-                        <h6 class="fw-bold">Security & Policy</h6>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-dark text-decoration-none">Disclosures and
-                                    Risk Warning</a></li>
-                            <li><a href="#" class="text-dark text-decoration-none">Customer
-                                    Agreement</a></li>
-                            <li><a href="#" class="text-dark text-decoration-none">Partnerships</a>
-                            </li>
-                            <li><a href="#" class="text-dark text-decoration-none">Affiliates</a>
-                            </li>
-                            <li><a href="#" class="text-dark text-decoration-none">Investor
-                                    Relations</a></li>
-                            <li><a href="#" class="text-dark text-decoration-none">Press
-                                    Releases</a></li>
-                        </ul>
-                    </div>
-                    <!-- I Would Like to Learn About -->
-                    <div class="col-12 col-sm-3">
-                        <h5 class="text-color">Newsletter</h5>
-                        <p class="small">Kindly, subscribe to our weekly Newsletter so that you can get all
-                            the
-                            updates in your email every week.</p>
-                        <form action="" method="post">
-                            <div class="d-flex flex-column">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Enter Email Address" class="form-control mb-3">
-                                </div>
-                                <input type="submit" class="btn btn-sm rounded btn-dark" value="Subscribe">
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Help Section -->
-                    <div class="col-12 col-md-3">
-                        <h6 class="fw-bold">Need help? <a href="#contact" class="text-primary">Contact us</a></h6>
-                    </div>
-                </div>
-                <!-- Bottom Row -->
-                <div class="border-top pt-3 text-center d-flex flex-column flex-sm-row gap-md-5 justify-content-center">
-                    <p class="fw-light small text-color">© 2025 EarnRafiki. INC. All Rights Reserved </p>
-                    <p class="small fw-light text-dark text-decoration-none">Security Policy</p>
-                    <p class="small fw-light text-dark text-decoration-none">Developers</p>
-                    <p class="small fw-light text-dark text-decoration-none">User Agreement & Policy</p>
-                    <p class="small fw-light text-dark text-decoration-none" href="{% url 'dashboard' %}">Portal</p>
-                </div>
-            </div>
-        </footer>
-    </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+  <!-- header  -->
+  <section class="hero-section flashy-bg">
+    <div class="container p-5">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <h1 class="display-4 text-white">Get in Touch – We’re All Ears!</h1>
+          <p class="lead text-white">Your friends deserve awesome deals—so why not get rewarded for sharing them? </p>
+          <a href="#" class="btn btn-light mt-3">Contact Us</a>
+          <div class="social-icons mt-4">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src=".{% static 'images/raf2-bg.png' %}" alt="bg-image" class="rounded">
+        </div>
+      </div>
+    </div>
+    <div class="wave-container">
+      <svg viewBox="0 0 1440 320">
+        <path fill="#ffffff" fill-opacity="2"
+          d="M0,96L60,101.3C120,107,240,117,360,106.7C480,96,600,64,720,69.3C840,75,960,117,1080,144C1200,171,1320,181,1380,186.7L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+        </path>
+      </svg>
+    </div>
+  </section>
 
-    <script src="./js/index.js"></script>
+  <!-- values  -->
+
+  <!-- random  -->
+  <section>
+    <div class="p-md-5">
+      <h5 class="display-4 w-75 fw-bold ps-5">
+        THERE ARE <strong class="text-primary">LOTS</strong> OF WAYS TO EARN FROM OUR PLATFORM
+      </h5>
+      <div class="d-flex gap-5 p-5 flex-wrap">
+        <div class="referral-card">
+          <!-- <img src=".{% static 'images/img.jpeg" alt="Badge Icon" class="referral-icon"> -->
+          <div class="referral-title">Referral Starter</div>
+          <p class="referral-text">Refer us to 5 of your friends to earn this badge and get rewarded with $10.</p>
+        </div>
+
+        <div class="referral-card">
+          <div class="referral-title">Referral Influencer</div>
+          <p class="referral-text">Refer us to 10 of your friends to earn this badge and get rewarded with $20.</p>
+        </div>
+
+        <div class="referral-card">
+          <div class="referral-title">Referral Expert</div>
+          <p class="referral-text">Refer us to 20 of your friends to earn this badge and get rewarded with $30.</p>
+        </div>
+
+        <div class="referral-card">
+          <div class="referral-title">Referral Master</div>
+          <p class="referral-text">Refer us to 30 of your friends to earn this badge and get rewarded with $40.</p>
+        </div>
+
+        <div class="referral-card">
+          <div class="referral-title">Referral Champion</div>
+          <p class="referral-text">Refer us to 50 of your friends to earn this badge and get rewarded with $100.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- newsletter  -->
+
+
+  <!-- Footer  -->
+  <section>
+    <footer class="bg-light text-dark pt-5 pb-3">
+      <div class="container">
+        <!-- Links Row -->
+        <div class="row text-center text-md-start mb-4 p-5">
+          <!-- Tell Me More -->
+          <div class="col-12 col-md-3 mb-3 mb-md-0">
+            <h5 class="fw-bold">Quick Links</h6>
+              <ul class="list-unstyled">
+                <li><a class="text-decoration-none text-dark fs-0" href="#contact">About Us</a></li>
+                <li><a class="text-decoration-none text-dark fs-0" href="#">Get Started</a></li>
+                <li><a class="text-decoration-none text-dark fs-0" href="">Learn</a></li>
+                <li><a class="text-decoration-none text-dark fs-0" href="#testimonials">Testimonials</a></li>
+              </ul>
+          </div>
+          <!-- I Would Like To -->
+          <div class="col-12 col-md-3 mb-3 mb-md-0">
+            <h5 class="fw-bold">Security & Policy</h5>
+            <ul class="list-unstyled">
+              <li class=""><a href="#" class="text-dark text-decoration-none" style="font-size: 20px;">Disclosures and
+                  Risk Warning</a></li>
+              <li><a href="#" class="text-dark text-decoration-none fs-0" style="font-size: 20px;">Customer
+                  Agreement</a></li>
+              <li><a href="#" class="text-dark text-decoration-none fs-0" style="font-size: 20px;">Partnerships</a>
+              </li>
+              <li><a href="#" class="text-dark text-decoration-none fs-0" style="font-size: 20px;">Affiliates</a>
+              </li>
+              <li><a href="#" class="text-dark text-decoration-none fs-0" style="font-size: 20px;">Investor
+                  Relations</a></li>
+              <li><a href="#" class="text-dark text-decoration-none fs-0" style="font-size: 20px;">Press
+                  Releases</a></li>
+            </ul>
+          </div>
+          <!-- I Would Like to Learn About -->
+          <div class="col-12 col-sm-3">
+            <h5 class="text-color fw-bold">Newsletter</h5>
+            <p class="small">Kindly, subscribe to our weekly Newsletter so that you can get all
+              the
+              updates in your email every week.</p>
+            <form action="" method="post">
+              <div class="d-flex flex-column">
+                <div class="form-group">
+                  <input type="text" placeholder="Enter Email Address" class="form-control mb-3">
+                </div>
+                <input type="submit" class="btn btn-sm rounded btn-dark" value="Subscribe">
+              </div>
+            </form>
+          </div>
+          <!-- Help Section -->
+          <div class="col-12 col-md-3">
+            <h6 class="fw-bold">Need help? <a href="#contact" class="text-primary">Contact us</a></h6>
+          </div>
+        </div>
+        <!-- Bottom Row -->
+        <div class="border-top pt-3 text-center d-flex flex-column flex-sm-row gap-md-5 justify-content-center">
+          <p class="fw-light small text-color" style="font-size: 20px;">© 2025 EarnRafiki. INC. All Rights Reserved </p>
+          <p class="small fw-light text-dark text-decoration-none" style="font-size: 20px;">Security Policy</p>
+          <p class="small fw-light text-dark text-decoration-none" style="font-size: 20px;">Developers</p>
+          <p class="small fw-light text-dark text-decoration-none" style="font-size: 20px;">User Agreement & Policy</p>
+          <p class="small fw-light text-dark text-decoration-none" style="font-size: 20px;">Portal</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,23 @@
+{% extends '../user_home.html' %}
+
+{% block content %}
+    <h2>Your account is still pending activation.</h2>
+    <p>You need to pay a $500 activation fee to activate your account.</p>
+
+    {% if user.account.balance >= 500 %}
+        <!-- Activation Form (when enough funds are available) -->
+        <form method="post" action="{% url 'pay_activation_fee' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Activate Account</button>
+        </form>
+    {% else %}
+        <!-- Show Deposit Money CTA if funds are insufficient -->
+        <div class="alert alert-warning">
+            <strong>Warning:</strong> Your balance is insufficient to pay the activation fee. Please deposit money to proceed.
+        </div>
+        <form method="post" action="{% url 'deposit_money' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Deposit Money</button>
+        </form>
+    {% endif %}
+{% endblock %}

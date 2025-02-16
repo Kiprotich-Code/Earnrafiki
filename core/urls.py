@@ -8,6 +8,7 @@ urlpatterns = [
 
     # accounts
     path('acc_details/', views.acc_details, name='acc_details'),
+    path('pay-activation-fee/', views.pay_activation_fee, name='pay_activation_fee'),
 
     # transactions 
     path('account/deposit/', views.deposit_view, name='deposit'),

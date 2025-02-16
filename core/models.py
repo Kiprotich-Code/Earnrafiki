@@ -23,6 +23,17 @@ class Account(models.Model):
     referred_by = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True, blank=True, related_name='referred_users')
     referral_reward_received = models.BooleanField(default=False)  # To track if the referrer has already been rewarded
 
+    activation_paid = models.BooleanField(default=False)  # Track if the activation fee is paid
+
+    def set_status_based_on_payment(self):
+        """ Set account status to 'Active' if activation fee is paid """
+        if self.activation_paid:
+            self.status = 'Active'
+            self.save()
+        else:
+            self.status = 'Pending'
+            self.save()
+
     def __str__(self):
         return f"Account for {self.user.email}"
     

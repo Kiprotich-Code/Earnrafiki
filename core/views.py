@@ -4,6 +4,8 @@ from .models import Account, Transaction
 from .forms import DepositForm, WithdrawForm
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
+from django.contrib import messages
+from .decorators import activation_fee_required
 
 # Create your views here.
 def home(request):
@@ -11,6 +13,10 @@ def home(request):
 
 def user_home(request):
     account = request.user.account
+    
+    if account.status in ['Pending', 'pending'] and not account.activation_paid:
+        return render(request, 'accounts/pending.html', {'account': account})
+
     transactions = Transaction.objects.filter(account=account).order_by('-date')[0:10]
     transaction_count = transactions.count()
     pending_transaction_count = Transaction.objects.filter(account=account, tr_status='Pending').count()
@@ -25,7 +31,31 @@ def user_home(request):
     return render(request, 'user_home.html', context)
 
 
+
+
+def pay_activation_fee(request):
+    account = request.user.account
+    
+    if account.activation_paid:
+        messages.success(request, "Your account is already activated!")
+        return redirect('user_home')
+    
+    if account.balance >= 500:  # Ensure the user has enough funds to pay the activation fee
+        account.balance -= 500  # Deduct the activation fee from the balance
+        account.activation_paid = True  # Mark the activation as paid
+        account.set_status_based_on_payment()  # Update the account status
+        account.save()
+        messages.success(request, "Activation fee paid successfully! Your account is now active.")
+    else:
+        messages.error(request, "Insufficient funds to pay the activation fee. Please deposit money to proceed.")
+        return render(request, 'deposit_prompt.html')  # Render a page with a "Deposit Money" CTA
+    
+    return redirect('user_home')
+
+
 # ACCOUNTS VIEWS 
+@activation_fee_required
+@login_required
 def acc_details(request):
     acc = Account.objects.get(user=request.user)
 
@@ -60,7 +90,7 @@ def deposit_view(request):
 
     return render(request, 'accounts/deposit.html', {'form': form, 'account': account})
 
-
+@activation_fee_required
 @login_required
 def withdraw_view(request):
     account = request.user.account
@@ -90,6 +120,7 @@ def withdraw_view(request):
     return render(request, 'accounts/withdraw.html', {'form': form, 'account': account})
 
 
+@activation_fee_required
 @login_required
 def transaction_history_view(request):
     account = request.user.account
@@ -99,7 +130,9 @@ def transaction_history_view(request):
 
 
 # USER VIEWS 
-# my profile 
+# my profile
+@activation_fee_required
+@login_required 
 def my_profile(request):
     acc_no = request.user.account_no
     acc_info = Account.objects.get(user=request.user)

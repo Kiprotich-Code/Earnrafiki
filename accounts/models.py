@@ -2,7 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils import timezone
 from .managers import CustomUserManager
-import uuid
+import random
+import string
 
 # Create your models here.
 class CustomUser(AbstractBaseUser, PermissionsMixin):
@@ -41,10 +42,17 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
 
+
+    def generate_referral_code(self):
+        """Generate a random 12-character referral code"""
+        return ''.join(random.choices(string.ascii_uppercase + string.digits, k=12))
+    
+
     def save(self, *args, **kwargs):
         if not self.referral_code:
-            self.referral_code = str(uuid.uuid4()).split('-')[0]  # Generate a short unique code
-        super(CustomUser, self).save(*args, **kwargs)
+            self.referral_code = self.generate_referral_code()
+        super().save(*args, **kwargs)
+        
 
     def __str__(self):
         return self.email
