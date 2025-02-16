@@ -1,6 +1,12 @@
 {% extends '../register.html' %}
+{% load static %}
 
 {% block content %}
+<div class="text-center p-3">
+    <img src="{% static 'images/design-bg.png' %}" alt="" style="width: 80px;">
+    <h5 class="py-2">Welcome back, please login to continue!</h5>
+</div>
+<hr>
 <form method="POST" action="{% url 'signin' %}">
     {{request.user.email}}
     {% csrf_token %}

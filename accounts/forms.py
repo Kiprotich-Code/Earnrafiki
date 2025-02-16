@@ -5,12 +5,12 @@ from .models import CustomUser
 
 # Step 1: Personal Information Form
 class UserForm(forms.ModelForm):
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'example@gmail.com'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'What is your email address ?'}))
     password = forms.CharField(
         widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Password',
+                'placeholder': 'Create a strong password',
             }
         )
     )
@@ -18,7 +18,7 @@ class UserForm(forms.ModelForm):
         widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Confirm Password',
+                'placeholder': 'Re-enter password',
             }
         )
     )
@@ -27,9 +27,9 @@ class UserForm(forms.ModelForm):
         model = CustomUser
         fields = ['name', 'email', 'phone_no', 'password', ]
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Name"}),
-            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Email"}),
-            'phone_no': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "Phone Number"}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "What is your name ?"}),
+            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "What is your email address ?"}),
+            'phone_no': forms.TextInput(attrs={'class': 'form-control', 'placeholder': "What's your phone number ?"}),
         }
 
 

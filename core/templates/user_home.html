@@ -124,7 +124,7 @@
                         <span class="nav-link-text ms-1">Transactions</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link  " href="{% url 'my_profile' %}">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -153,7 +153,7 @@
                         </div>
                         <span class="nav-link-text ms-1">My Profile</span>
                     </a>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item">
                     <a class="nav-link  " href="#">
                         <div
@@ -295,8 +295,7 @@
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-capitalize font-weight-bold">Account Balance</p>
                                         <h5 class="font-weight-bolder mb-0">
-                                            $ {{request.user.account.balance}}
-                                            $ {{request.user.referral_code}}
+                                            Kshs {{request.user.account.balance}}
                                             <!-- <span class="text-success text-sm font-weight-bolder">+55%</span> -->
                                         </h5>
                                     </div>
@@ -383,7 +382,40 @@
             </div>
         </div>
 
-        <div class="row my-4">
+        <div class="container my-5">
+            <div class="card shadow-lg border-0">
+                <div class="card-body text-center p-4">
+                    <h3 class="mb-3">Share Your Referral Link</h3>
+                    <p class="text-muted">Invite your friends and earn rewards for every successful sign-up!</p>
+
+                    <!-- Referral Link Section -->
+                    <div class="input-group my-3">
+                        <input type="text" id="referralLink" class="form-control text-center"
+                            value="https://example.com/referral?code=XYZ123" readonly>
+                        <button class="btn btn-primary" onclick="copyReferral()">Copy</button>
+                    </div>
+                    <small class="text-success" id="copyMessage" style="display: none;">Copied to clipboard!</small>
+
+                    <!-- Referral Stats -->
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="p-3 border rounded bg-light">
+                                <h5 class="mb-1">Total Invites</h5>
+                                <p class="display-6 fw-bold text-primary" id="totalInvites">0</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 border rounded bg-light">
+                                <h5 class="mb-1">Successful Referrals</h5>
+                                <p class="display-6 fw-bold text-success" id="successfulReferrals">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="row my-4">
             <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
                 <div class="card">
                     <div class="card-header pb-0">
@@ -450,14 +482,14 @@
                                             </div>
                                         </td>
                                         <td class="align-middle text-sm">
-                                            <span class="text-xs font-weight-bold">$ {{tr.amount}} </span>
+                                            <span class="text-xs font-weight-bold">Kshs {{tr.amount}} </span>
                                         </td>
 
                                         <td class="align-middle text-center text-sm">
                                             <span class="text-xs font-weight-bold"> {{tr.tr_status}} </span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold"> $ {{tr.account.balance}} </span>
+                                            <span class="text-xs font-weight-bold"> Kshs {{tr.account.balance}} </span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
                                             <span class="text-xs font-weight-bold">
@@ -472,7 +504,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-lg-4 col-md-5">
                 <div class="card h-100">
                     <div class="card-header pb-0">
@@ -490,7 +522,8 @@
                                     <i class="ni ni-bell-55 text-success text-gradient"></i>
                                 </span>
                                 <div class="timeline-content">
-                                    <h6 class="text-dark text-sm font-weight-bold mb-0">$ {{tr.account.balance}}, {{tr.transaction_type}}</h6>
+                                    <h6 class="text-dark text-sm font-weight-bold mb-0">Kshs {{tr.account.balance}},
+                                        {{tr.transaction_type}}</h6>
                                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">{{tr.date}}</p>
                                 </div>
                             </div>
@@ -501,14 +534,14 @@
             </div>
         </div>
         {% endblock %}
-        <footer class="footer pt-3  ">
-            <div class="container-fluid">
-                <div class="row align-items-center justify-content-lg-between">
-                </div>
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer pt-3">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2025 <a
+                        href="https://www.bootstrapdash.com/" target="_blank">EarnRafiki</a>. All rights
+                    reserved.</span>
             </div>
         </footer>
-        </div>
-
     </main>
     <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -755,14 +788,37 @@
                 },
             },
         });
-    </script>
-    <script>
+
+        // second script 
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
             var options = {
                 damping: '0.5'
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+
+        // third script 
+        function copyReferral() {
+            var copyText = document.getElementById("referralLink");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+
+            // Show success message
+            var copyMessage = document.getElementById("copyMessage");
+            copyMessage.style.display = "inline";
+            setTimeout(() => {
+                copyMessage.style.display = "none";
+            }, 2000);
+        }
+
+        // fourth script 
+        function copyReferralCode() {
+            const codeText = document.getElementById("referralCode").textContent;
+            navigator.clipboard.writeText(codeText).then(() => {
+                alert("Referral Code Copied: " + codeText);
+            });
         }
     </script>
 

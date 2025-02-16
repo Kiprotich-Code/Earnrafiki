@@ -3,17 +3,6 @@
 {% block content %}
 <div class="container py-4">
     <div class="card p-3 rounded">
-        <div class="d-flex flex-wrap gap-3">
-            <p class="text-sm font-weight-bold"><strong>Account Number:</strong> {{ account.account_no }}</p>
-            <p class="text-sm font-weight-bold"><strong>Balance:</strong> ${{ account.balance }}</p>
-            <p class="text-sm font-weight-bold"><strong>User:</strong> {{ account.user.get_full_name }}</p>
-            <p class="text-sm font-weight-bold"><strong>Email:</strong> {{ account.user.email }}</p>
-        </div>
-    </div>
-</div>
-
-<div class="container py-4">
-    <div class="card p-3 rounded">
         <div class="card-body px-0 pb-2">
             <div class="d-flex flex-column flex-md-row gap-3 mb-3">
                 <a href="{% url 'withdraw' %}" class="btn btn-primary m-0 rounded btn-sm">Withdraw</a>
@@ -63,13 +52,13 @@
                                     {{transaction.transaction_type}} </span>
                             </td>
                             <td class="align-middle text-sm text-center ">
-                                <span class="text-xs font-weight-bold"> $ {{transaction.account.balance}} </span>
+                                <span class="text-xs font-weight-bold"> Kshs  {{transaction.account.balance}} </span>
                             </td>
                             <td class="align-middle text-sm text-center ">
-                                <span class="text-xs font-weight-bold"> $ {{transaction.amount}} </span>
+                                <span class="text-xs font-weight-bold"> Kshs  {{transaction.amount}} </span>
                             </td>
                             <td class="align-middle text-sm text-center ">
-                                <span class="text-xs font-weight-bold"> $ {{transaction.account.balance}} </span>
+                                <span class="text-xs font-weight-bold"> Kshs  {{transaction.account.balance}} </span>
                             </td>
                             <td class="align-middle text-sm text-center ">
                                 <span class="text-xs font-weight-bold"> {{transaction.date | timesince }} ago
@@ -91,6 +80,38 @@
                         {% endif %}
 
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-body text-center p-4">
+            <h3 class="mb-3">Share Your Referral Link</h3>
+            <p class="text-muted">Invite your friends and earn rewards for every successful sign-up!</p>
+
+            <!-- Referral Link Section -->
+            <div class="input-group my-3">
+                <input type="text" id="referralLink" class="form-control text-center" value="https://example.com/referral?code=XYZ123" readonly>
+                <button class="btn btn-primary" onclick="copyReferral()">Copy</button>
+            </div>
+            <small class="text-success" id="copyMessage" style="display: none;">Copied to clipboard!</small>
+
+            <!-- Referral Stats -->
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="p-3 border rounded bg-light">
+                        <h5 class="mb-1">Total Invites</h5>
+                        <p class="display-6 fw-bold text-primary" id="totalInvites">0</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 border rounded bg-light">
+                        <h5 class="mb-1">Successful Referrals</h5>
+                        <p class="display-6 fw-bold text-success" id="successfulReferrals">0</p>
+                    </div>
                 </div>
             </div>
         </div>

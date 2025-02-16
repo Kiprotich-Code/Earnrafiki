@@ -11,6 +11,8 @@ from .decorators import activation_fee_required
 def home(request):
     return render(request, 'index.html')
 
+
+@login_required
 def user_home(request):
     account = request.user.account
     
@@ -32,7 +34,7 @@ def user_home(request):
 
 
 
-
+@login_required
 def pay_activation_fee(request):
     account = request.user.account
     

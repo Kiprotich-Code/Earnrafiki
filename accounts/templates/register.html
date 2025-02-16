@@ -14,7 +14,7 @@
 
 <body>
     <div class="d-flex align-items-center justify-content-center vh-100">
-        <div class="col col-md-4 rounded border p-3 m-3">
+        <div class="col col-md-5 rounded border p-3 m-3">
             <!-- Display form-specific messages -->
             {% if messages %}
             <div class="messages">
@@ -28,14 +28,17 @@
             {% endif %}
 
             {% block content %}
-            <h2>Register</h2>
-
+            <div class="text-center pt-3">
+                <img src="{% static 'images/design-bg.png' %}" alt="" style="width: 80px;">
+                <p class="fw-bold small">Create an account and start earning today....</p>
+            </div>
+            <hr>
             <form method="post">
                 {% csrf_token %}
 
                 <!-- Display field-specific errors -->
                 <div class="form-group mb-3">
-                    <label for="{{ form.name.id_for_label }}">Name</label>
+                    
                     {{ form.name }}
                     {% if form.name.errors %}
                     <ul>
@@ -47,7 +50,7 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    
                     {{ form.email }}
                     {% if form.email.errors %}
                     <ul>
@@ -59,7 +62,7 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="{{ form.email.id_for_label }}">Phone Number</label>
+                    
                     {{ form.phone_no }}
                     {% if form.phone_no.errors %}
                     <ul>
@@ -71,7 +74,7 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="{{ form.password1.id_for_label }}">Password</label>
+                    
                     {{ form.password }}
                     {% if form.password.errors %}
                     <ul>
@@ -83,7 +86,7 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+                    
                     {{ form.password2 }}
                     {% if form.password2.errors %}
                     <ul>
@@ -99,7 +102,7 @@
                 <p>Referral Code: {{ referral_code }}</p>
                 {% endif %}
 
-                <button type="submit" class="btn btn-primary rounded w-100">Register</button>
+                <button type="submit" class="btn btn-dark rounded w-100 mb-3">Register</button>
 
                 <p class="text-center">Already have an account? <a href="{% url 'signin' %}" class="text-decoration-none">Login</a>
             </form>
